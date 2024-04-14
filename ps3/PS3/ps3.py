@@ -91,9 +91,23 @@ def get_word_score(word, n):
     n: int >= 0
     returns: int >= 0
     """
-    
-    pass  # TO DO... Remove this line when you implement this function
-
+    # set variale for score
+    score = None
+    # correct for mixed case entries
+    word = word.lower()
+    word_length = len(word)
+    if word_length == 0:
+        print("No word entered, please enter a word.")
+    else:
+        for letter in word:
+            if letter in SCRABBLE_LETTER_VALUES:
+                score += (SCRABBLE_LETTER_VALUES[letter]) 
+                second_component = (7 * word_length - 3 * ( n- word_length))
+                if second_component < 1:
+                    second_component = 1
+                score = score * second_component
+                
+    # return score
 #
 # Make sure you understand how this function works and what it does!
 #
