@@ -106,6 +106,7 @@ def get_word_score(word, n):
                 if second_component < 1:
                     second_component = 1
                 score = score * second_component
+                #next line
                 
     # return score
 #
