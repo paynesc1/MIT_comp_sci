@@ -92,23 +92,25 @@ def get_word_score(word, n):
     returns: int >= 0
     """
     # set variale for score
-    score = None
+    score = 0
     # correct for mixed case entries
     word = word.lower()
     word_length = len(word)
-    if word_length == 0:
-        print("No word entered, please enter a word.")
-    else:
-        for letter in word:
-            if letter in SCRABBLE_LETTER_VALUES:
-                score += (SCRABBLE_LETTER_VALUES[letter]) 
-                second_component = (7 * word_length - 3 * ( n- word_length))
-                if second_component < 1:
-                    second_component = 1
-                score = score * second_component
-                #next line
-                
-    # return score
+    print(f"Word length: {word_length}")
+    # get first_component
+    for letter in word:
+        print(letter)
+        if letter in SCRABBLE_LETTER_VALUES:
+            score += (SCRABBLE_LETTER_VALUES[letter]) 
+    # second_component = (7 * word_length) - (3 * (n - word_length))
+    second_component = (7 * word_length - 3 * ( n- word_length))
+    if second_component < 1:
+        second_component = 1
+    print(f"Score: {score}")
+    print(f"2nd Component: {second_component}")
+    score = score * second_component
+    # next line          
+    return score
 #
 # Make sure you understand how this function works and what it does!
 #
